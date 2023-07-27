@@ -26,6 +26,28 @@
           2,
           null,
           null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -302,7 +324,31 @@
       },
       "/Users/seancowans/turing_work/take_home_api/spec/requests/unsubscribe_spec.rb": {
         "lines": [
-
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
         ]
       },
       "/Users/seancowans/turing_work/take_home_api/app/models/customer.rb": {
@@ -353,6 +399,19 @@
           1,
           1,
           null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          null,
+          2,
+          null,
+          2,
+          null,
           null
         ]
       },
@@ -372,7 +431,7 @@
           1,
           1,
           null,
-          1,
+          3,
           null,
           null,
           null,
@@ -386,6 +445,6 @@
         ]
       }
     },
-    "timestamp": 1690486043
+    "timestamp": 1690498635
   }
 }

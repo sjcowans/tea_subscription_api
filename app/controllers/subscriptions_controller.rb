@@ -15,4 +15,17 @@ class SubscriptionsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     render json: @customer.subscriptions, status: :ok
   end
+
+  def update
+    @customer = Customer.find(params[:customer_id])
+    @subscription = Subscription.find(params[:id])
+    if params[:status] == "active"
+      @subscription.update(status: 1)
+    elsif params[:status] == "inactive"
+      @subscription.update(status: 0)
+    end
+    return unless @subscription.save
+
+    render json: SubscribeSerializer.serialize(@customer, @subscription), status: :ok
+  end
 end
