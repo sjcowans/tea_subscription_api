@@ -5,6 +5,5 @@ class TeasController < ApplicationController
 
   def update
     customer
-    binding.pry
   end
 end
