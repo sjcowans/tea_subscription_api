@@ -1,2 +1,3 @@
-class Subscription < ApplicationRecord::Subscription
+class Subscription < ApplicationRecord
+
 end
