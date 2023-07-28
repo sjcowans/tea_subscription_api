@@ -20,7 +20,7 @@ You need to have Ruby, Rails and Postgres installed in your system. Here's the m
 First, you need to clone the project:
 
 ```bash
-git clone https://github.com/yourusername/yourproject.git
+git clone https://github.com/sjcowans/tea_subscription_api.git
 ```
 
 Then, install the dependencies:
