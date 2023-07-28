@@ -22,25 +22,16 @@ RSpec.describe 'subscribe', type: :request do
     end
   end
 
-  it 'can update an inactive tea subscription to active for a customer' do
+  it 'can give 404 for invalid customer' do
     @customer = Customer.create!(first_name: 'John', last_name: 'Doe', email: '<EMAIL>', address: '<ADDRESS>')
-    @tea = Tea.create!(title: 'Green Tea', description: 'Green Tea Description', temperature: 'Temperature', brew_time: 'Brew Time')
-    @subscription = Subscription.create!(title: @tea.title, price: @tea.monthly_price, status: 0, frequency: 'Monthly', customer_id: @customer.id)
+    @tea = Tea.create!(title: 'Green Tea', description: 'Green Tea Description', temperature: 100, brew_time: 20)
+    Subscription.create!(title: @tea.title, price: @tea.monthly_price, status: 1, frequency: 'Monthly', customer_id: @customer.id)
+    Subscription.create!(title: @tea.title, price: @tea.monthly_price, status: 1, frequency: 'Monthly', customer_id: @customer.id)
 
-    expect(@subscription.status).to eq('Inactive')
+    get "/customers/0/subscriptions"
 
-    patch "/customers/#{@customer.id}/teas/#{@tea.id}/subscriptions/#{@subscription.id}/?status=active"
-
-    @subscription.reload
-    expect(@subscription.status).to eq('Active')
-
-    expect(response.status).to eq(200)
+    expect(response.status).to eq(404)
     response_data = JSON.parse(response.body, symbolize_names: true)
-    expect(response_data[:id]).to eq(@customer.id)
-    expect(response_data[:subscription][:id]).to eq(1)
-    expect(response_data[:subscription][:title]).to eq(@tea.title)
-    expect(response_data[:subscription][:price]).to eq(@tea.monthly_price)
-    expect(response_data[:subscription][:status]).to eq('Active')
-    expect(response_data[:subscription][:frequency]).to eq('Monthly')
+    expect(response_data[:errors][0][:detail]).to eq('Customer not found')
   end
 end
